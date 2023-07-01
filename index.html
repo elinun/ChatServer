@@ -46,12 +46,12 @@ function decrypt(ciphertext, password) {
 <script language="javascript" type="text/javascript">
 
 
-  var password = document.myform.privateKey.value;
   function init()
   {
 	document.myform.url.value = "ws://75.137.145.89:8148/"
 	document.myform.inputtext.value = "Hello World!"
 	document.myform.disconnectButton.disabled = true;
+	document.myform.privateKey.value = "password";
   }
 
   function doConnect()
@@ -65,7 +65,7 @@ function decrypt(ciphertext, password) {
   
   function setPassword()
   {
-	password = document.myform.privateKey.value;
+	//password = document.myform.privateKey.value;
   }
 
   function onOpen(evt)
@@ -101,7 +101,7 @@ function decrypt(ciphertext, password) {
   function doSend(message)
   {
     writeToScreen("You: " + message + '\n'); 
-    websocket.send(encrypt(message));
+    websocket.send(encrypt(message, document.myform.privateKey.value));
   }
 
   function writeToScreen(message)
