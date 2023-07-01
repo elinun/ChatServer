@@ -35,6 +35,6 @@ while True:
     connectionSocket.send("HTTP/1.1 500 INTERNAL SERVER ERROR\r\nContent-Length: 0\r\n\r\n".encode())
     connectionSocket.close()
     serverSocket.close()
-  sys.exit()#Terminate the program after sending the corresponding data
+  #sys.exit()#Terminate the program after sending the corresponding data
 
 
