@@ -4,47 +4,43 @@
 
 <title>Simple Chat Server</title>
 
-<script src="jsaes-0.1/jsaes.js" language="javascript" type="text/javascript">
-
-function encrypt(text, password) {
-	AES_Init();
-
-	var block = new Array(text.length);
-	for(var i = 0; i < text.length; i++)
-		block[i] = text.charCodeAt(i);
-
-	var key = new Array(password.length);
-	for(var i = 0; i < password.length; i++)
-	  key[i] = password.charCodeAt(i);
-
-	AES_ExpandKey(key);
-	var encrypted = AES_Encrypt(block, key);
-
-	AES_Done();
-	return encrypted;
-}
-
-function decrypt(ciphertext, password) {
-	AES_Init();
-
-	var block = new Array(ciphertext.length);
-	for(var i = 0; i < ciphertext.length; i++)
-		block[i] = ciphertext.charCodeAt(i);
-
-	var key = new Array(password.length);
-	for(var i = 0; i < password.length; i++)
-	  key[i] = password.charCodeAt(i);
-
-	AES_ExpandKey(key);
-	var plaintext = AES_Decrypt(block, key);
-
-	AES_Done();
-	return plaintext;
-}
-
-</script>
+<script src="jsaes-0.1/jsaes.js" language="javascript" type="text/javascript"</script>
 <script language="javascript" type="text/javascript">
+	function encrypt(text, password) {
+		AES_Init();
 
+		var block = new Array(text.length);
+		for(var i = 0; i < text.length; i++)
+			block[i] = text.charCodeAt(i);
+
+		var key = new Array(password.length);
+		for(var i = 0; i < password.length; i++)
+		  key[i] = password.charCodeAt(i);
+
+		AES_ExpandKey(key);
+		var encrypted = AES_Encrypt(block, key);
+
+		AES_Done();
+		return encrypted;
+	}
+
+	function decrypt(ciphertext, password) {
+		AES_Init();
+
+		var block = new Array(ciphertext.length);
+		for(var i = 0; i < ciphertext.length; i++)
+			block[i] = ciphertext.charCodeAt(i);
+
+		var key = new Array(password.length);
+		for(var i = 0; i < password.length; i++)
+		  key[i] = password.charCodeAt(i);
+
+		AES_ExpandKey(key);
+		var plaintext = AES_Decrypt(block, key);
+
+		AES_Done();
+		return plaintext;
+	}
 
   function init()
   {
