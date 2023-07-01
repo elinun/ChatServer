@@ -1,40 +1,4 @@
 from simple_websocket_server import WebSocketServer, WebSocket
-import hashlib
-
-HANDSHAKE_STR = (
-   "HTTP/1.1 101 Switching Protocols\r\n"
-   "Upgrade: WebSocket\r\n"
-   "Connection: Upgrade\r\n"
-   "Sec-WebSocket-Accept: %(acceptstr)s\r\n\r\n"
-)
-
-FAILED_HANDSHAKE_STR = (
-   "HTTP/1.1 426 Upgrade Required\r\n"
-   "Upgrade: WebSocket\r\n"
-   "Connection: Upgrade\r\n"
-   "Sec-WebSocket-Version: 13\r\n"
-   "Content-Type: text/plain\r\n\r\n"
-   "This service requires use of the WebSocket protocol\r\n"
-)
-
-GUID_STR = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
-
-STREAM = 0x0
-TEXT = 0x1
-BINARY = 0x2
-CLOSE = 0x8
-PING = 0x9
-PONG = 0xA
-
-HEADERB1 = 1
-HEADERB2 = 3
-LENGTHSHORT = 4
-LENGTHLONG = 5
-MASK = 6
-PAYLOAD = 7
-
-MAXHEADER = 65536
-MAXPAYLOAD = 33554432
 
 
 class SimpleChat(WebSocket):
