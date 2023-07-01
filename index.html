@@ -39,7 +39,12 @@
 		AES_Decrypt(block, key);
 
 		AES_Done();
-		return block;
+		var plaintext = "";
+		for (int i = 0; i < block.length; i++) {
+			plaintext += String.fromCharCode(block[i]);
+		}
+		
+		return plaintext;
 	}
 
   function init()
