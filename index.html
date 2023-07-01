@@ -80,7 +80,7 @@
 
   function onMessage(evt)
   {
-    writeToScreen(evt.data + '\n');
+    writeToScreen(decrypt(evt.data, document.myform.privateKey.value) + '\n');
   }
 
   function onError(evt)
