@@ -21,7 +21,7 @@ while True:
   connectionSocket, addr = serverSocket.accept()
   try:
     message = connectionSocket.recv(1024)
-    filename = "static/html/index.html"
+    filename = "static/html/websocket.html"
     f = open(filename) 
     outputdata = f.read()
     connectionSocket.send("HTTP/1.1 200 OK\r\n\r\n".encode())
@@ -38,4 +38,3 @@ while True:
   sys.exit()#Terminate the program after sending the corresponding data
 
 
-def send_headers
