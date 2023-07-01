@@ -97,7 +97,8 @@
   function doSend(message)
   {
     writeToScreen("You: " + message + '\n'); 
-    websocket.send(encrypt(message, document.myform.privateKey.value));
+	var encryptedMsg = encrypt(message, document.myform.privateKey.value);
+    websocket.send(encryptedMsg);
   }
 
   function writeToScreen(message)
