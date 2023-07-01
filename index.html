@@ -18,10 +18,10 @@
 		  key[i] = password.charCodeAt(i);
 
 		AES_ExpandKey(key);
-		var encrypted = AES_Encrypt(block, key);
+		AES_Encrypt(block, key);
 
 		AES_Done();
-		return encrypted;
+		return block;
 	}
 
 	function decrypt(ciphertext, password) {
@@ -36,10 +36,10 @@
 		  key[i] = password.charCodeAt(i);
 
 		AES_ExpandKey(key);
-		var plaintext = AES_Decrypt(block, key);
+		AES_Decrypt(block, key);
 
 		AES_Done();
-		return plaintext;
+		return block;
 	}
 
   function init()
