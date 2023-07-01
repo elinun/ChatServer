@@ -1,3 +1,10 @@
+#https://stackoverflow.com/questions/285015/how-to-prevent-a-background-process-from-being-stopped-after-closing-ssh-client
+# sudo nohup python HttpServer.py
+# sudo nohup python -m http.server 80
+#ps -e | less
+# sudo kill <PID>
+
+
 #import socket module
 from socket import *
 import sys # In order to terminate the program
