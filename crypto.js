@@ -85,7 +85,7 @@ function multiplyMatrixByVector(matrix, vector) {
 	for (var v = 0; v < vector.length; v++) {
 		var sum = 0;
 		for (var c = 0; c < matrix.length; c++) {
-			sum += matrix[c][v] * vector[v];
+			sum += matrix[c][v] * vector[c];
 		}
 		product[v] = sum;
 	}
@@ -99,16 +99,16 @@ function invertMatrix(matrix) {
 
     //Augment Identity matrix to the right of matrix
 	var rows = matrix[0].length;
-	var augmentedMatrix = new Array(matrix);
+	var augmentedMatrix = matrix;
 	var identityMatrix = [];
 	for (var i = 0; i < rows; i++) {
 		var colVec = [];
 		for (var j = 0; j < matrix.length; j++) {
 			colVec[j] = ( i == j ? 1 : 0);
 		}
-		identityMatrix.concat(colVec);
+		identityMatrix[i] = colVec;
 	}
-	augmentedMatrix.concat(identityMatrix);
+	augmentedMatrix = augmentedMatrix.concat(identityMatrix);
 
 
 
