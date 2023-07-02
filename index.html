@@ -4,48 +4,8 @@
 
 <title>Simple Chat Server</title>
 
-<script src="jsaes-0.1/jsaes.js" language="javascript" type="text/javascript"></script>
+<script src="crypto.js" language="javascript" type="text/javascript"></script>
 <script language="javascript" type="text/javascript">
-	function encrypt(text, password) {
-		AES_Init();
-
-		var block = new Array(text.length);
-		for(var i = 0; i < text.length; i++)
-			block[i] = text.charCodeAt(i);
-
-		var key = new Array(password.length);
-		for(var i = 0; i < password.length; i++)
-		  key[i] = password.charCodeAt(i);
-
-		AES_ExpandKey(key);
-		AES_Encrypt(block, key);
-
-		AES_Done();
-		return block;
-	}
-
-	function decrypt(ciphertext, password) {
-		AES_Init();
-
-		var block = new Array(ciphertext.length);
-		for(var i = 0; i < ciphertext.length; i++)
-			block[i] = ciphertext.charCodeAt(i);
-
-		var key = new Array(password.length);
-		for(var i = 0; i < password.length; i++)
-		  key[i] = password.charCodeAt(i);
-
-		AES_ExpandKey(key);
-		AES_Decrypt(block, key);
-
-		AES_Done();
-		var plaintext = "";
-		for (var i = 0; i < block.length; i++) {
-			plaintext += String.fromCharCode(block[i]);
-		}
-		
-		return plaintext;
-	}
 
   function init()
   {
