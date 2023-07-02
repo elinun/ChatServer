@@ -36,7 +36,7 @@ function decrypt(ciphertext, password) {
 		plainarr[i] = multiplyMatrixByVector(key, vectorI);
 	}
 	plainarr = plainarr.flat();
-	return plainarr;
+	return toStr(plainarr);
 }
 
 
@@ -50,6 +50,7 @@ function arrToMatrix(arr) {
 		}
 		matrix[i] = col;
 	}
+	return matrix;
 }
 
 function toBytes(inString) {
@@ -65,6 +66,7 @@ function toStr(inBytes) {
 	for (var i = 0; i < inBytes.length; i++) {
 		retStr += String.fromCharCode(inBytes[i]);
 	}
+	return retStr;
 }
 
 //matrix here is defined as an array of COLUMN vectors(arrays)
