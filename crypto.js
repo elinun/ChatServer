@@ -107,7 +107,7 @@ function invertMatrix(matrix) {
             var d = A[lead][lead];
             var m = A[lead][r] / A[lead][lead];
 
-            for (var c = 0; c < augmentedMatrix.size(); c++) { // for each column ...
+            for (var c = 0; c < augmentedMatrix.length; c++) { // for each column ...
                 if (r == lead)
                     A[c][r] /= d;               // make pivot = 1
                 else
