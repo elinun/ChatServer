@@ -100,13 +100,15 @@ function invertMatrix(matrix) {
     //Augment Identity matrix to the right of matrix
 	var rows = matrix[0].length;
 	var augmentedMatrix = new Array(matrix);
+	var identityMatrix = [];
 	for (var i = 0; i < rows; i++) {
 		var colVec = [];
 		for (var j = 0; j < matrix.length; j++) {
 			colVec[j] = ( i == j ? 1 : 0);
 		}
-		augmentedMatrix.concat(colVec);
+		identityMatrix.concat(colVec);
 	}
+	augmentedMatrix.concat(identityMatrix);
 
 
 
