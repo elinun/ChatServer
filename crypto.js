@@ -100,12 +100,12 @@ function invertMatrix(matrix) {
 
     while (lead < rows) {
 
-        for (int r = 0; r < rows; r++) { // for each row ...
+        for (var r = 0; r < rows; r++) { // for each row ...
             /* calculate divisor and multiplier */
             var d = A[lead][lead];
             var m = A[lead][r] / A[lead][lead];
 
-            for (int c = 0; c < augmentedMatrix.size(); c++) { // for each column ...
+            for (var c = 0; c < augmentedMatrix.size(); c++) { // for each column ...
                 if (r == lead)
                     A[c][r] /= d;               // make pivot = 1
                 else
