@@ -56,7 +56,7 @@ function arrToMatrix(arr) {
 function toBytes(inString) {
 	var outArr = [];
 	for(var i = 0; i < inString.length; i++) {
-		outArr[i] = inString.charAt(i);
+		outArr[i] = inString.charCodeAt(i);
 	}
 	return outArr;
 }
