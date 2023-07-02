@@ -87,7 +87,7 @@ function multiplyMatrixByVector(matrix, vector) {
 		for (var c = 0; c < matrix.length; c++) {
 			sum += matrix[c][v] * vector[c];
 		}
-		product[v] = sum;
+		product[v] = Math.round(sum);
 	}
 	return product;
 }
