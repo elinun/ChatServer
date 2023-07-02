@@ -20,7 +20,7 @@ function encrypt(text, password) {
 
 function decrypt(ciphertext, password) {
 	var nums = ciphertext.split(",");
-	
+	nums[0] = nums[0].replace(" - ", "");
 	var bytes = parseInts(nums);
 	var keyBytes = toBytes(password);
 	var key = arrToMatrix(keyBytes);
@@ -43,7 +43,7 @@ function decrypt(ciphertext, password) {
 
 function parseInts(stringyNumbersArr) {
 	var retArr = [];
-	for (var i = 0; i < stringNumbersArr.length; i++) {
+	for (var i = 0; i < stringyNumbersArr.length; i++) {
 		retArr[i] = parseInt(stringyNumbersArr[i]);
 	}
 	return retArr;
@@ -99,7 +99,14 @@ function invertMatrix(matrix) {
 
     //Augment Identity matrix to the right of matrix
 	var rows = matrix[0].length;
-    var augmentedMatrix = matrix.concat([[1, 0, 0], [0, 1, 0], [0, 0, 1]]);
+	var augmentedMatrix = new Array(matrix);
+	for (var i = 0; i < rows; i++) {
+		var colVec = [];
+		for (var j = 0; j < matrix.length; j++) {
+			colVec[j] = ( i == j ? 1 : 0);
+		}
+		augmentedMatrix.concat(colVec);
+	}
 
 
 
