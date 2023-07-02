@@ -45,7 +45,10 @@
 
   function onMessage(evt)
   {
-    writeToScreen(decrypt(evt.data, document.myform.privateKey.value) + '\n');
+	var idx = evt.data.indexOf(" - ");
+	var sender = evt.data.substring(0, idx);
+	var msg = evt.data.substring(idx, evt.data.length);
+    writeToScreen(sender + " - " + decrypt(msg, document.myform.privateKey.value) + '\n');
   }
 
   function onError(evt)

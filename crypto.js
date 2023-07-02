@@ -19,7 +19,9 @@ function encrypt(text, password) {
 }
 
 function decrypt(ciphertext, password) {
-	var bytes = toBytes(ciphertext);
+	var nums = ciphertext.split(",");
+	
+	var bytes = parseInts(nums);
 	var keyBytes = toBytes(password);
 	var key = arrToMatrix(keyBytes);
 	key = invertMatrix(key);
@@ -37,6 +39,14 @@ function decrypt(ciphertext, password) {
 	}
 	plainarr = plainarr.flat();
 	return toStr(plainarr);
+}
+
+function parseInts(stringyNumbersArr) {
+	var retArr = [];
+	for (var i = 0; i < stringNumbersArr.length; i++) {
+		retArr[i] = parseInt(stringyNumbersArr[i]);
+	}
+	return retArr;
 }
 
 
