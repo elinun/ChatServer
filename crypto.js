@@ -10,7 +10,7 @@ function encrypt(text, password) {
 	for (var i = 0; i < plainBytes.length; i+=key.length) {
 		var vectorI = [];
 		for (var j = 0; j < key.length; j++) {
-			vectorI[j] = plainBytes[(i*key.length)+j];
+			vectorI[j] = plainBytes[i+j];
 		}
 		cipherarr[i] = multiplyMatrixByVector(key, vectorI);
 	}
@@ -31,7 +31,7 @@ function decrypt(ciphertext, password) {
 	for (var i = 0; i < bytes.length; i+=key.length) {
 		var vectorI = [];
 		for (var j = 0; j < key.length; j++) {
-			vectorI[j] = bytes[(i*key.length)+j];
+			vectorI[j] = bytes[i+j];
 		}
 		plainarr[i] = multiplyMatrixByVector(key, vectorI);
 	}
